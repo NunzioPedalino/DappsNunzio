@@ -1,0 +1,52 @@
+<div class="login-dark">
+  <form class="container-fluid" method="post">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="text" style="color: black">Dapps Nunzio</h1>
+      </div>
+      <div class="col-6">
+        <h4 class="text" style="color: black">{{ balance }} Coin</h4>
+      </div>
+    </div>
+    <br>
+    <h1 class="text" style="color: black">Indirizzo connesso :</h1>
+    <h1 class="text-account" style="color: black">{{ account }}</h1>
+    
+    <hr class="nav-item bg-dark">
+
+    <div *ngIf="success" class="alert bg-transparent font-weight-bold" role="alert" style="border: solid 1px green; color: green">
+      {{ status }}
+    </div>
+    <div *ngIf="warning" class="alert bg-transparent font-weight-bold" role="alert" style="border: solid 1px gold; color: gold">
+      {{ status }}
+    </div>
+    <div *ngIf="error" class="alert bg-transparent font-weight-bold" role="alert" style="border: solid 1px red; color: red">
+      {{ status }}
+    </div>
+
+    <br>
+
+    <h1 class="text" style="color: black">Invia Stringa</h1>
+
+    <input type="text" class="form-control" placeholder="Inserisci una stringa" required
+            [(ngModel)]="sendMetaCoin.amount" name="_stringa" #stringa="ngModel">
+
+      <!---
+      <div *ngIf="!amount.errors && (amount.dirty || amount.touched)">
+        <div class="alert bg-transparent font-weight-bold" role="alert" [hidden]="canBeNumber(sendMetaCoin.amount)" style="border: solid 1px red; color: red">
+          Must be a number
+        </div>
+      </div>
+      -->
+    <input type="text"  class="form-control" placeholder="To Address" required
+            [(ngModel)]="sendMetaCoin.toAddress" name="_toAddress" #toAddress>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block" (click)="sendCoin(sendMetaCoin)">Invia</button>
+    </div>
+    <br>
+    <!---
+    <a href="#" class="forgot">Open console to view any Errors and Warnings</a>
+    -->
+  </form>
+</div>
+
